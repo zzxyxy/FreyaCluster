@@ -26,6 +26,8 @@ spec:
         value: "20Gi"
       - name: persistence.accessModes[0]
         value: ReadWriteOnce
+      - name: initChownData
+        value: "false"
   destination:
     namespace: monitoring
     server: https://kubernetes.default.svc
