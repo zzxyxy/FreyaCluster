@@ -25,7 +25,7 @@ spec:
       - name: persistence.size
         value: "20Gi"
       - name: persistence.accessModes[0]
-        value: ReadWriteMany
+        value: ReadWriteOnce
   destination:
     namespace: monitoring
     server: https://kubernetes.default.svc
