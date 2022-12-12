@@ -26,7 +26,7 @@ spec:
         value: "20Gi"
       - name: persistence.accessModes[0]
         value: ReadWriteOnce
-      - name: initChownData.enable
+      - name: initChownData.enabled
         value: "false"
   destination:
     namespace: monitoring
