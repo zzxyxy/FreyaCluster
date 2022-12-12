@@ -1,0 +1,48 @@
+apiVersion: v1
+kind: Service
+metadata:
+  name: cdk8s-service-c844e1e1
+spec:
+  ports:
+    - port: 80
+      targetPort: 8080
+  selector:
+    app: hello-k8s
+  type: ClusterIP
+---
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: cdk8s-deployment-c8087a1b
+spec:
+  replicas: 2
+  selector:
+    matchLabels:
+      app: hello-k8s
+  template:
+    metadata:
+      labels:
+        app: hello-k8s
+    spec:
+      containers:
+        - image: paulbouwer/hello-kubernetes:1.7
+          name: hello-kubernetes
+          ports:
+            - containerPort: 8080
+---
+apiVersion: networking.k8s.io/v1
+kind: Ingress
+metadata:
+  name: cdk8s-ingress-c85fbcda
+spec:
+  rules:
+    - host: test.localhost
+      http:
+        paths:
+          - backend:
+              service:
+                name: cdk8s-service-c844e1e1
+                port:
+                  number: 80
+            path: /
+            pathType: Prefix
