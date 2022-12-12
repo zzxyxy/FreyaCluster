@@ -17,7 +17,7 @@ spec:
       - name: server.ingress.enabled
         value: "true"
       - name: server.ingress.hosts[0]
-        value: prometheus.zxyxyhome.duckdns.org
+        value: prometheus.monitoring.zxyxyhome.duckdns.org
       - name: server.persistentVolume.enabled
         value: "true"
       - name: server.persistentVolume.storageClass
