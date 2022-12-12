@@ -1,0 +1,37 @@
+apiVersion: argoproj.io/v1alpha1
+kind: Application
+metadata:
+  name: prometheus
+  namespace: argocd
+  finalizers:
+    - resources-finalizer.argocd.argoproj.io
+spec:
+  project: default
+  source:
+    chart: prometheus
+    repoURL: https://prometheus-community.github.io/helm-charts
+    targetRevision: 18.0.0
+    helm:
+      releaseName: prometheus
+      parameters:
+      - name: server.ingress.enabled
+        value: "true"
+      - name: server.ingress.hosts[0]
+        value: prometheus.zxyxyhome.duckdns.org
+      - name: server.persistentVolume.enabled
+        value: "true"
+      - name: server.persistentVolume.storageClass
+        value: prometheus
+      - name: server.persistentVolume.volumeName
+        value: prometheus
+      - name: server.persistentVolume.size
+        value: 300Gi
+  destination:
+    namespace: monitoring
+    server: https://kubernetes.default.svc
+  syncPolicy:
+    automated:
+      selfHeal: true
+      prune: true
+    syncOptions:
+    - CreateNamespace=true
