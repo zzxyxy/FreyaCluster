@@ -18,15 +18,15 @@ spec:
         value: "true"
       - name: ingress.hosts[0]
         value: grafana.zxyxyhome.duckdns.org
-      - name: persistentVolume.enabled
+      - name: persistence.enabled
         value: "true"
-      - name: persistentVolume.storageClassName
+      - name: persistence.storageClassName
         value: grafana
-      - name: persistentVolume.existingClaim
+      - name: persistence.existingClaim
         value: grafana
-      - name: server.persistentVolume.size
+      - name: persistence.size
         value: "20Gi"
-      - name: server.persistentVolume.accessModes[0]
+      - name: persistence.accessModes[0]
         value: ReadWriteMany
   destination:
     namespace: monitoring
