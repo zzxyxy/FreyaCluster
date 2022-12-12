@@ -1,0 +1,18 @@
+apiVersion: v1
+kind: PersistentVolume
+metadata:
+  name: prometheus
+spec:
+  capacity:
+    storage: 300Gi
+  volumeMode: Filesystem
+  accessModes:
+    - ReadWriteMany
+  persistentVolumeReclaimPolicy: Retain
+  storageClassName: prometheus
+  mountOptions:
+    - hard
+    - nfsvers=4.1
+  nfs:
+    path: /storage01/kube/prometheus
+    server: 172.21.0.2
