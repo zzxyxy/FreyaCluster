@@ -26,8 +26,8 @@ spec:
         value: prometheus
       - name: server.persistentVolume.size
         value: "300Gi"
-      - name: server.persistentVolume.accessModes
-        value: RWO
+      - name: server.persistentVolume.accessModes[0]
+        value: ReadWriteMany
   destination:
     namespace: monitoring
     server: https://kubernetes.default.svc
