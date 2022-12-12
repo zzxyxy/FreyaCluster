@@ -25,7 +25,7 @@ spec:
       - name: server.persistentVolume.volumeName
         value: prometheus
       - name: server.persistentVolume.size
-        value: 300Gi
+        value: "300Gi"
   destination:
     namespace: monitoring
     server: https://kubernetes.default.svc
