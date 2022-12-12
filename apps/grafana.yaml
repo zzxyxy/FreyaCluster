@@ -25,7 +25,7 @@ spec:
       - name: persistence.size
         value: "20Gi"
       - name: persistence.accessModes[0]
-        value: ReadWriteOnce
+        value: ReadWriteOnce.enable
       - name: initChownData
         value: "false"
   destination:
