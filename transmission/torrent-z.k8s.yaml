@@ -52,7 +52,7 @@ spec:
             - sh
             - -c
             - chown -R 555:555 /etc/transmission/settings.json
-          image: zxyxy/transmission:0.1.0
+          image: busybox
           name: transmission-init
           volumeMounts:
             - mountPath: /etc/transmission/settings.json
