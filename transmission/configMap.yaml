@@ -56,7 +56,7 @@ data:
       "rpc-host-whitelist": "",
       "rpc-host-whitelist-enabled": true,
       "rpc-password": "{7d48e6cc48c691e942e0950a965899904aa7a44bfUhy7IH7",
-      "rpc-port": 59091,
+      "rpc-port": 80,
       "rpc-url": "/transmission/",
       "rpc-username": "zxyxy",
       "rpc-whitelist": "172.20.*.*",
