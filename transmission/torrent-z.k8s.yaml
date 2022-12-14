@@ -32,7 +32,12 @@ spec:
         app: torrent-z
     spec:
       containers:
-        - image: zxyxy/transmission:0.1.0
+        - env:
+            - name: TRANS_UID
+              value: "1000"
+            - name: TRANS_GID
+              value: "1000"
+          image: zxyxy/transmission:0.1.0
           name: transmission
           ports:
             - containerPort: 80
