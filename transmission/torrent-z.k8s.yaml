@@ -68,6 +68,8 @@ kind: PersistentVolume
 metadata:
   name: torrent
 spec:
+  accessModes:
+    - ReadWriteOnce
   capacity:
     storage: 2500Gi
   mountOptions:
@@ -85,6 +87,8 @@ kind: PersistentVolumeClaim
 metadata:
   name: torrent-z
 spec:
+  accessModes:
+    - ReadWriteOnce
   resources:
     requests:
       storage: 2500Gi
