@@ -69,6 +69,7 @@ spec:
                   number: 80
             path: /
             pathType: Prefix
+
 ---
 apiVersion: v1
 kind: PersistentVolume
@@ -102,6 +103,7 @@ spec:
       storage: 2500Gi
   storageClassName: torrent-z
   volumeMode: Filesystem
+
 ---
 apiVersion: v1
 kind: Namespace
