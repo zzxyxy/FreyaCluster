@@ -20,7 +20,7 @@ metadata:
   name: transmission
   namespace: torrent-z
 spec:
-  replicas: 2
+  replicas: 1
   selector:
     matchLabels:
       app: torrent-z
@@ -74,8 +74,8 @@ spec:
     - hard
     - nfsvers=4.1
   nfs:
-    path: 172.21.0.2
-    server: /storage02/kube/torrent-z
+    path: /storage02/kube/torrent-z
+    server: 172.21.0.2
   persistentVolumeReclaimPolicy: Retain
   storageClassName: torrent-z
   volumeMode: Filesystem
@@ -91,3 +91,10 @@ spec:
       storage: 2500Gi
   storageClassName: torrent-z
   volumeMode: Filesystem
+---
+apiVersion: v1
+kind: Namespace
+metadata:
+  name: torrent
+  namespace: torrent-z
+spec: {}
