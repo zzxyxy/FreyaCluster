@@ -51,7 +51,7 @@ spec:
         - command:
             - sh
             - -c
-            - mkdir -p /etc/transmission && cp /tmp/settings.json /etc/transmission/settings.json && chown -R 777:777 /etc/transmission/settings.json
+            - mkdir -p /etc/transmission && cp /tmp/settings.json /etc/transmission/settings.json && chmod -R 777:777 /etc/transmission/settings.json
           image: busybox
           name: transmission-init
           volumeMounts:
