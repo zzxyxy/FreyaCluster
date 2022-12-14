@@ -8,12 +8,7 @@ spec:
     - name: web
       port: 80
       targetPort: 80
-    - name: upload
-      port: 20001
-      protocol: UDP
-      targetPort: 20001
   selector:
-    app: torrent-z
     app.kubernetes.io/name: torrent-z
   type: ClusterIP
 ---
@@ -32,7 +27,6 @@ spec:
       port: 20001
       targetPort: 20001
   selector:
-    app: torrent-z
     app.kubernetes.io/name: torrent-z
   type: LoadBalancer
 ---
@@ -45,12 +39,10 @@ spec:
   replicas: 1
   selector:
     matchLabels:
-      app: torrent-z
       app.kubernetes.io/name: torrent-z
   template:
     metadata:
       labels:
-        app: torrent-z
         app.kubernetes.io/name: torrent-z
     spec:
       containers:
