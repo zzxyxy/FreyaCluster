@@ -16,6 +16,22 @@ spec:
     app: torrent-z
   type: ClusterIP
 ---
+apiVersion: v1
+kind: Service
+metadata:
+  name: transmissionudp
+  namespace: torrent-z
+spec:
+  ports:
+    - name: transudp
+      port: 20001
+      protocol: UDP
+      targetPort: 20001
+    - name: transtcp
+      port: 20001
+      targetPort: 20001
+  type: LoadBalancer
+---
 apiVersion: apps/v1
 kind: Deployment
 metadata:
