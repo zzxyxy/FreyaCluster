@@ -5,9 +5,11 @@ metadata:
   namespace: torrent-z
 spec:
   ports:
-    - port: 80
+    - name: Web
+      port: 80
       targetPort: 80
-    - port: 20001
+    - name: upload
+      port: 20001
       protocol: UDP
       targetPort: 20001
   selector:
@@ -38,12 +40,12 @@ spec:
               protocol: UDP
           volumeMounts:
             - mountPath: /etc/transmission/settings.json
-              name: settings.json
+              name: settingsjson
               subPath: settings.json
       volumes:
         - configMap:
-            name: settings.json
-          name: settings.json
+            name: transmission
+          name: settingsjson
 ---
 apiVersion: networking.k8s.io/v1
 kind: Ingress
@@ -85,7 +87,8 @@ spec:
 apiVersion: v1
 kind: PersistentVolumeClaim
 metadata:
-  name: torrent-z
+  name: torrent-pvc
+  namespace: torrent-z
 spec:
   accessModes:
     - ReadWriteOnce
