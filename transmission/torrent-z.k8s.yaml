@@ -8,17 +8,6 @@ spec:
     - name: web
       port: 80
       targetPort: 80
-  selector:
-    app: torrent-z
-  type: ClusterIP
----
-apiVersion: v1
-kind: Service
-metadata:
-  name: transmissionudp
-  namespace: torrent-z
-spec:
-  ports:
     - name: transudp
       port: 20001
       protocol: UDP
@@ -27,7 +16,7 @@ spec:
       port: 20001
       targetPort: 20001
   selector:
-    app.kubernetes.io/name: torrent-z
+    app: torrent-z
   type: LoadBalancer
 ---
 apiVersion: apps/v1
