@@ -25,6 +25,7 @@ spec:
       targetPort: 20001
     - name: transtcp
       port: 20001
+      protocol: TCP
       targetPort: 20001
   selector:
     app: torrent-z
