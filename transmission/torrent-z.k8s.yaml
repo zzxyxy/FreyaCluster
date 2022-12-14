@@ -37,25 +37,14 @@ spec:
               value: "1000"
             - name: TRANS_GID
               value: "1000"
-          image: zxyxy/transmission:0.1.0
+          image: zxyxy/transmission:0.2.0
           name: transmission
           ports:
             - containerPort: 80
             - containerPort: 20001
               protocol: UDP
           volumeMounts:
-            - mountPath: /tmp/settings.json
-              name: settingsjson
-              subPath: settings.json
-      initContainers:
-        - command:
-            - sh
-            - -c
-            - mkdir -p /etc/transmission && cp /tmp/settings.json /etc/transmission/settings.json && chmod -R 777 /etc/transmission/settings.json
-          image: busybox
-          name: transmission-init
-          volumeMounts:
-            - mountPath: /tmp/settings.json
+            - mountPath: /etc/transmission/settings.json
               name: settingsjson
               subPath: settings.json
       volumes:

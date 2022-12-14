@@ -4,7 +4,7 @@ metadata:
   name: transmission
   namespace: torrent-z
 data:
-  settingsjson: |
+  settings.json: |
     {
       "alt-speed-down": 300,
       "alt-speed-enabled": false,
