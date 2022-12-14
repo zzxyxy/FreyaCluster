@@ -47,10 +47,15 @@ spec:
             - mountPath: /etc/transmission/settings.json
               name: settingsjson
               subPath: settings.json
+            - mountPath: /data
+              name: data
       volumes:
         - configMap:
             name: transmission
           name: settingsjson
+        - name: data
+          persistentVolumeClaim:
+            claimName: torrent-pvc
 ---
 apiVersion: networking.k8s.io/v1
 kind: Ingress
