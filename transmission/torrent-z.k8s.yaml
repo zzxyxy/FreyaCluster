@@ -47,6 +47,17 @@ spec:
             - mountPath: /etc/transmission/settings.json
               name: settingsjson
               subPath: settings.json
+      initContainers:
+        - command:
+            - sh
+            - -c
+            - chown -R 555:555 /etc/transmission/settings.json
+          image: zxyxy/transmission:0.1.0
+          name: transmission-init
+          volumeMounts:
+            - mountPath: /etc/transmission/settings.json
+              name: settingsjson
+              subPath: settings.json
       volumes:
         - configMap:
             name: transmission
