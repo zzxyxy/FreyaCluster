@@ -14,6 +14,7 @@ spec:
       targetPort: 20001
   selector:
     app: torrent-z
+    app.kubernetes.io/name: torrent-z
   type: ClusterIP
 ---
 apiVersion: v1
@@ -32,6 +33,7 @@ spec:
       targetPort: 20001
   selector:
     app: torrent-z
+    app.kubernetes.io/name: torrent-z
   type: LoadBalancer
 ---
 apiVersion: apps/v1
@@ -44,10 +46,12 @@ spec:
   selector:
     matchLabels:
       app: torrent-z
+      app.kubernetes.io/name: torrent-z
   template:
     metadata:
       labels:
         app: torrent-z
+        app.kubernetes.io/name: torrent-z
     spec:
       containers:
         - env:
