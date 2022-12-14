@@ -18,6 +18,8 @@ metadata:
   name: transmission
   namespace: torrent-z
 spec:
+  externalIPs:
+    - 172.21.0.2
   ports:
     - name: transudp
       port: 20001
