@@ -94,6 +94,5 @@ spec:
 apiVersion: v1
 kind: Namespace
 metadata:
-  name: torrent
-  namespace: torrent-z
+  name: torrent-z
 spec: {}
