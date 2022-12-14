@@ -44,14 +44,14 @@ spec:
             - containerPort: 20001
               protocol: UDP
           volumeMounts:
-            - mountPath: /etc/transmission/settings.json
+            - mountPath: /tmp/settings.json
               name: settingsjson
               subPath: settings.json
       initContainers:
         - command:
             - sh
             - -c
-            - chown -R 777:777 /etc/transmission/settings.json
+            - cp /tmp/settings.json /etc/transmission/settings.json && chown -R 777:777 /etc/transmission/settings.json
           image: busybox
           name: transmission-init
           volumeMounts:
