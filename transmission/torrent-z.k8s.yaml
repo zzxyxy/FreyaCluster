@@ -37,7 +37,7 @@ spec:
               value: "1000"
             - name: TRANS_GID
               value: "1000"
-          image: zxyxy/transmission:0.3.0
+          image: zxyxy/transmission:0.4.0
           name: transmission
           ports:
             - containerPort: 80
