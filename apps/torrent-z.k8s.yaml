@@ -83,8 +83,7 @@ spec:
 apiVersion: v1
 kind: PersistentVolumeClaim
 metadata:
-  name: torrent
-  namespace: torrent-z
+  name: torrent-z
 spec:
   resources:
     requests:
