@@ -1,0 +1,33 @@
+apiVersion: argoproj.io/v1alpha1
+kind: Application
+metadata:
+  name: postgres
+  namespace: argocd
+  finalizers:
+    - resources-finalizer.argocd.argoproj.io
+spec:
+  project: default
+  source:
+    chart: postgresql
+    repoURL: https://cetic.github.io/helm-charts
+    targetRevision: 11.5
+    helm:
+      releaseName: postgresql
+      parameters:
+      - name: persistent.enabled
+        value: "true"
+      - name: persistent.storageClass
+        value: postgres
+      - name: persistent.volumeName
+        value: postgred
+      - name: persistent.size
+        value: "100Gi"
+  destination:
+    namespace: database
+    server: https://kubernetes.default.svc
+  syncPolicy:
+    automated:
+      selfHeal: true
+      prune: true
+    syncOptions:
+    - CreateNamespace=true
