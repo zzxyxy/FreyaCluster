@@ -20,6 +20,8 @@ spec:
         value: postgres
       - name: primary.persistence.size
         value: "100Gi"
+      - name: primary.service.type
+        value: loadbalancer
   destination:
     namespace: database
     server: https://kubernetes.default.svc
