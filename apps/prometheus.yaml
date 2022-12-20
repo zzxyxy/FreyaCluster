@@ -31,9 +31,11 @@ spec:
       - name: extraScrapeConfigs
         value: |
           - job_name: 'freya_monitor'
+            scrape_interval: 1m
+            scrape_timeout: 30s
             static_configs:
               - targets:
-                - http://172.21.0.2:9100
+                - 172.21.0.2:9100
   destination:
     namespace: monitoring
     server: https://kubernetes.default.svc
