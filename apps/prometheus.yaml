@@ -28,14 +28,14 @@ spec:
         value: "300Gi"
       - name: server.persistentVolume.accessModes[0]
         value: ReadWriteMany
-      values: |
-        serverFiles:
-          prometheus.yml:
-            scrape_configs:
-              - job_name: 'freya_monitor'
-                static_configs:
-                  - targets:
-                    - 172.21.0.2:9100
+#      values: |
+#        serverFiles:
+#          prometheus.yml:
+#            scrape_configs:
+#              - job_name: 'freya_monitor'
+#                static_configs:
+#                  - targets:
+#                    - 172.21.0.2:9100
   destination:
     namespace: monitoring
     server: https://kubernetes.default.svc
