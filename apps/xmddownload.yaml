@@ -9,6 +9,7 @@ spec:
     spec:
       template:
         spec:
+          restartPolicy: Never
           containers:
             - name: xmldownloader
               image: zxyxy/xmldownload:0.1.0
