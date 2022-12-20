@@ -29,16 +29,10 @@ spec:
       - name: server.persistentVolume.accessModes[0]
         value: ReadWriteMany
       values: |
-        extraScrapeConfigs:
-          - job_name: 'freya_monitor'
-            static_configs:
-              - targets:
-                - 172.21.0.2:9100
-        prometheus:
-          prometheusSpec:
-            additionalScrapeConfigs:
-              name: additional-scrape-configs
-              key: freyascrapeconfig.yaml
+        prometheusSpec:
+          additionalScrapeConfigs:
+            name: additional-scrape-configs
+            key: freyascrapeconfig.yaml
   destination:
     namespace: monitoring
     server: https://kubernetes.default.svc
