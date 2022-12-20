@@ -1,0 +1,19 @@
+server:
+  ingress:
+    enabled: true
+    paths:
+      - /
+    hosts:
+      - argocd.zxyxyhome.duckdns.org
+  extraArgs:
+    - "--insecure"
+  metrics:
+    serviceMonitor:
+      enabled: true
+
+controller:
+  metrics:
+    rules:
+      enabled: true
+    serviceMonitor:
+      enabled: true
