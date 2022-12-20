@@ -10,7 +10,7 @@ spec:
       template:
         spec:
           containers:
-            - name: XMLDownloader
+            - name: xmldownloader
               image: zxyxy/xmldownload:0.1.0
               env:
                 - name: RSSLINK
