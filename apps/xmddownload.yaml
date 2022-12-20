@@ -1,23 +1,25 @@
 apiVersion: batch/v1
 kind: CronJob
 metadata:
-  name: hello
+  name: xmldownload-z
+  namespace: torrent-z
 spec:
   schedule: "*/5 * * * *"
   jobTemplate:
     spec:
       template:
         spec:
-          container:
-            image: zxyxy/xmldownload:0.1.0
-            env:
-              - name: RSSLINK
-              - value: "https://ncore.pro/bookmarks/fcc9f495abbd4b4a10c1ca5d759e8491113707"
-            volumeMounts:
-              - mountPath: /files
-                name: files
-              - mountPath: /db
-                name: db
+          containers:
+            - name: XMLDownloader
+              image: zxyxy/xmldownload:0.1.0
+              env:
+                - name: RSSLINK
+                - value: "https://ncore.pro/bookmarks/fcc9f495abbd4b4a10c1ca5d759e8491113707"
+              volumeMounts:
+                - mountPath: /files
+                  name: files
+                - mountPath: /db
+                  name: db
           volumes:
             - name: files
               claimName: filespv
