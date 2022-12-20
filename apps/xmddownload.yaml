@@ -14,7 +14,7 @@ spec:
               image: zxyxy/xmldownload:0.1.0
               env:
                 - name: RSSLINK
-                - value: "https://ncore.pro/bookmarks/fcc9f495abbd4b4a10c1ca5d759e8491113707"
+                  value: "https://ncore.pro/bookmarks/fcc9f495abbd4b4a10c1ca5d759e8491113707"
               volumeMounts:
                 - mountPath: /files
                   name: files
@@ -22,6 +22,8 @@ spec:
                   name: db
           volumes:
             - name: files
-              claimName: filespv
+              persistentVolumeClaim:
+                claimName: filespv
             - name: db
-              claimName: dbpv
+              persistentVolumeClaim:
+                claimName: dbpv
