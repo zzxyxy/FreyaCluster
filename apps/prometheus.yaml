@@ -29,7 +29,7 @@ spec:
       - name: server.persistentVolume.accessModes[0]
         value: ReadWriteMany
       values: |
-        extraScrapeConfigs:
+        extraScrapeConfigs: |
         - job_name: 'freya_monitor'
           static_configs:
             - targets:
