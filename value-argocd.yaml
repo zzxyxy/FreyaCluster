@@ -8,6 +8,9 @@ server:
   extraArgs:
     - "--insecure"
   metrics:
+    enabled: true
+    annotations:
+      prometheus.io/scrape: "true"
     serviceMonitor:
       enabled: true
 
