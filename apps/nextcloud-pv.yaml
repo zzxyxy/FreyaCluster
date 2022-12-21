@@ -10,5 +10,5 @@ spec:
     - ReadWriteOnce
   persistentVolumeReclaimPolicy: Retain
   storageClassName: nextcloud
-  local:
+  hostPath:
     path: /storage01/kube/nextcloud
