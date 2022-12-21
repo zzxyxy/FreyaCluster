@@ -42,6 +42,7 @@ spec:
             static_configs:
               - targets:
                 - argo-cd-argocd-server-metrics.argocd.svc.cluster.local:8083
+                - argo-cd-argocd-application-controller-metrics.argocd.svc.cluster.local:8082
   destination:
     namespace: monitoring
     server: https://kubernetes.default.svc
