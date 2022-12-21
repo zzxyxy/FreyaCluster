@@ -38,6 +38,8 @@ spec:
         value: Nextcloud1234
       - name: externalDatabase.enabled
         value: "true"
+      - name: internalDatabase.enabled
+        value: "true"
   destination:
     namespace: nextcloud
     server: https://kubernetes.default.svc
