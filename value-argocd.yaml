@@ -16,7 +16,8 @@ server:
 
 controller:
   metrics:
-    rules:
-      enabled: true
+    enabled: true
+    annotations:
+      prometheus.io/scrape: "true"
     serviceMonitor:
       enabled: true

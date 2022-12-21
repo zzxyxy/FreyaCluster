@@ -1,0 +1,47 @@
+apiVersion: argoproj.io/v1alpha1
+kind: Application
+metadata:
+  name: nextcloud
+  namespace: argocd
+  finalizers:
+    - resources-finalizer.argocd.argoproj.io
+spec:
+  project: default
+  source:
+    chart: prometheus
+    repoURL: https://prometheus-community.github.io/helm-charts
+    targetRevision: 18.0.0
+    helm:
+      releaseName: prometheus
+      parameters:
+      - name: ingress.enabled
+        value: "true"
+      - name: ingress.hosts[0]
+        value: nextcloud.zxyxyhome.duckdns.org
+      - name: persistentVolume.enabled
+        value: "true"
+      - name: persistentVolume.storageClass
+        value: nextcloud
+      - name: persistentVolume.volumeName
+        value: nextcloud
+      - name: persistentVolume.size
+        value: "2000Gi"
+      - name: persistentVolume.accessModes[0]
+        value: ReadWriteMany
+      - name: metrics.enabled
+        value: true
+      - name: externalDatabase.type
+        value: postgresql
+      - name: externalDatabase.host
+        value: postgresql.database.svc.cluster.local
+      - name: externalDatabase.password
+        value: Nextcloud1234
+  destination:
+    namespace: monitoring
+    server: https://kubernetes.default.svc
+  syncPolicy:
+    automated:
+      selfHeal: true
+      prune: true
+    syncOptions:
+    - CreateNamespace=true
