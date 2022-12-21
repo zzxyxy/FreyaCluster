@@ -16,7 +16,7 @@ spec:
       parameters:
       - name: ingress.enabled
         value: "true"
-      - name: ingress.hosts[0]
+      - name: nextcloud.host
         value: nextcloud.zxyxyhome.duckdns.org
       - name: persistentVolume.enabled
         value: "true"
@@ -36,6 +36,8 @@ spec:
         value: postgresql.database.svc.cluster.local
       - name: externalDatabase.password
         value: Nextcloud1234
+      - name: externalDatabase.enabled
+        value: "true"
   destination:
     namespace: nextcloud
     server: https://kubernetes.default.svc
