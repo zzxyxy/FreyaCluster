@@ -10,8 +10,5 @@ spec:
     - ReadWriteOnce
   persistentVolumeReclaimPolicy: Retain
   storageClassName: nextcloud
-  mountOptions:
-    - hard
-    - nfsvers=4.1
   local:
     path: /storage01/kube/nextcloud
