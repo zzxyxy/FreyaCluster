@@ -29,7 +29,7 @@ spec:
       - name: persistentVolume.accessModes[0]
         value: ReadWriteMany
       - name: metrics.enabled
-        value: true
+        value: "true"
       - name: externalDatabase.type
         value: postgresql
       - name: externalDatabase.host
