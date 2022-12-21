@@ -16,6 +16,12 @@ spec:
       parameters:
       - name: grafana.enabled
         value: false
+      - name: alermanager.enabled
+        value: false
+      - name: prometheus.ingress.enabled
+        value: "true"
+      - name: prometheus.ingress.hosts[0]
+        value: prometheus.monitoring.zxyxyhome.duckdns.org
   destination:
     namespace: monitoring
     server: https://kubernetes.default.svc
