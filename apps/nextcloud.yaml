@@ -40,6 +40,10 @@ spec:
         value: "true"
       - name: internalDatabase.enabled
         value: "false"
+      - name: nextcloud.username
+        value: "admin"
+      - name: nextcloud.password
+        value: "changeme"
   destination:
     namespace: nextcloud
     server: https://kubernetes.default.svc
