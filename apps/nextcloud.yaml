@@ -18,15 +18,15 @@ spec:
         value: "true"
       - name: nextcloud.host
         value: nextcloud.zxyxyhome.duckdns.org
-      - name: persistence.enabled
+      - name: persistence.nextcloudData.enabled
         value: "true"
-      - name: persistence.storageClass
+      - name: persistence.nextcloudData.storageClass
         value: nextcloud
-      - name: persistence.volumeName
+      - name: persistence.nextcloudData.volumeName
         value: nextcloud
-      - name: persistence.size
+      - name: persistence.nextcloudData.size
         value: "2000Gi"
-      - name: persistence.accessModes[0]
+      - name: persistence.nextcloudData.accessModes[0]
         value: ReadWriteMany
       - name: metrics.enabled
         value: "true"
