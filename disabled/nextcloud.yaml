@@ -18,6 +18,8 @@ spec:
         value: "true"
       - name: nextcloud.host
         value: nextcloud.zxyxyhome.duckdns.org
+      - name: persistence.enabled
+        value: "true"
       - name: persistence.nextcloudData.enabled
         value: "true"
       - name: persistence.nextcloudData.storageClass
@@ -38,8 +40,6 @@ spec:
         value: Nextcloud1234
       - name: externalDatabase.enabled
         value: "true"
-      - name: internalDatabase.enabled
-        value: "false"
       - name: nextcloud.username
         value: "admin"
       - name: nextcloud.password
