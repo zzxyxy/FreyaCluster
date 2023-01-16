@@ -1,0 +1,38 @@
+apiVersion: v1
+kind: Service
+metadata:
+  name: mosquitto
+  namespace: ttmq
+spec:
+  ports:
+    - name: por1
+      port: 1883
+      targetPort: 1883
+    - name: por2
+      port: 9001
+      targetPort: 9001
+  selector:
+    app: mosquitto
+  type: LoadBalancer
+---
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: mosquitto
+  namespace: ttmq
+spec:
+  replicas: 1
+  selector:
+    matchLabels:
+      app: mosquitto
+  template:
+    metadata:
+      labels:
+        app: mosquitto
+    spec:
+      containers:
+        - image: eclipse-mosquitto:2.0.15
+          name: mosquitto
+          ports:
+            - containerPort: 1883
+            - containerPort: 9001
