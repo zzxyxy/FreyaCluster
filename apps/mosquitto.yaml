@@ -18,8 +18,9 @@ spec:
         value: "$7$101$7yMhV1zPLAAcV9f8$02zO+X4eGuI0N+H5XY6tgUye2l+eKp4QffV1ZaJtJ15mUyCSxgWpwAqLS2CCXSzpnCSqRrPMi2sa7PdzAKMI1w=="
       - name: auth.users[0].username
         value: admin
-      - name: service.type
-        value: LoadBalancer
+      values: |
+        service:
+          type: LoadBalancer
   destination:
     namespace: mqtt
     server: https://kubernetes.default.svc
