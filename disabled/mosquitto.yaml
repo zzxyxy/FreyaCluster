@@ -21,6 +21,14 @@ spec:
       values: |
         service:
           type: LoadBalancer
+        auth:
+          enabled: true
+          users:
+            - username: admin
+              password: $7$101$F9fFH8GYsM5TOxz4$Bwbf4oH8SP9xDcgtRGh2XIx/wh5mxCmZzzt8i5VBoLUDXjx6tyL7nDEOOKylN/NuTmW8u7enBC7CAouTmO5+eA==
+              acl:
+                - topic: "#"
+                  access: readwrite
   destination:
     namespace: mqtt
     server: https://kubernetes.default.svc
