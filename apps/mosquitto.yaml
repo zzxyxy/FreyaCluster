@@ -14,10 +14,10 @@ spec:
     helm:
       releaseName: mosquitto
       parameters:
-      - name: auth.users[0].password
-        value: "$7$101$7yMhV1zPLAAcV9f8$02zO+X4eGuI0N+H5XY6tgUye2l+eKp4QffV1ZaJtJ15mUyCSxgWpwAqLS2CCXSzpnCSqRrPMi2sa7PdzAKMI1w=="
-      - name: auth.users[0].username
-        value: admin
+#      - name: auth.users[0].password
+#        value: "$7$101$7yMhV1zPLAAcV9f8$02zO+X4eGuI0N+H5XY6tgUye2l+eKp4QffV1ZaJtJ15mUyCSxgWpwAqLS2CCXSzpnCSqRrPMi2sa7PdzAKMI1w=="
+#      - name: auth.users[0].username
+#        value: admin
       values: |
         service:
           type: LoadBalancer
