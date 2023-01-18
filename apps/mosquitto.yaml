@@ -8,9 +8,16 @@ metadata:
 spec:
   project: default
   source:
-    path: mosquitto
-    repoURL: https://github.com/zzxyxy/FreyaCluster.git
-    targetRevision: HEAD
+    chart: mosquitto
+    repoURL: https://sintef.github.io/mosquitto-helm-chart
+    targetRevision: 0.1.0
+    helm:
+      releaseName: mosquitto
+      parameters:
+      - name: auth.users[0].password
+        value: "$7$101$7yMhV1zPLAAcV9f8$02zO+X4eGuI0N+H5XY6tgUye2l+eKp4QffV1ZaJtJ15mUyCSxgWpwAqLS2CCXSzpnCSqRrPMi2sa7PdzAKMI1w=="
+      - name: auth.users[0].username
+        value: admin
   destination:
     namespace: mqtt
     server: https://kubernetes.default.svc
