@@ -25,7 +25,7 @@ spec:
           enabled: true
           users:
             - username: admin
-              password: $7$101$F9fFH8GYsM5TOxz4$Bwbf4oH8SP9xDcgtRGh2XIx/wh5mxCmZzzt8i5VBoLUDXjx6tyL7nDEOOKylN/NuTmW8u7enBC7CAouTmO5+eA==
+              password: $6$BD2qkjJO.fur4/vG$DsIjDm2ux9bJKHXcfGmfWbcvNcRvH24zwxAxKbvUlw3KNLIjlS7eVU/.DJ2HJXo3fjSfPUyanzc7hskws7OxF0
               acl:
                 - topic: "#"
                   access: readwrite
