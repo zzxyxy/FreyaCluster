@@ -14,7 +14,7 @@ spec:
         app: ismydns
     spec:
       containers:
-        - image: zxyxy/ismydns:0.1.0
+        - image: zxyxy/ismydns:0.2.0
           name: ismydns
           env:
             - name: DNS
