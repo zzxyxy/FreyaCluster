@@ -18,4 +18,4 @@ spec:
           name: ismydns
           env:
             - name: DNS
-            - value: zxyxyhome.duckdns.org
+              value: zxyxyhome.duckdns.org
