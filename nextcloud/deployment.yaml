@@ -31,6 +31,20 @@ spec:
             path: /
             pathType: Prefix
 ---
+apiVersion: v1
+kind: PersistentVolumeClaim
+metadata:
+  name: nextcloud-pvc
+  namespace: nextcloud
+spec:
+  accessModes:
+    - ReadWriteOnce
+  resources:
+    requests:
+      storage: 2500Gi
+  storageClassName: nextcloud
+  volumeMode: Filesystem
+---
 apiVersion: apps/v1
 kind: Deployment
 metadata:
@@ -47,29 +61,14 @@ spec:
         app: nextcloud
     spec:
       containers:
-        - image: nextcloud:23.0.12-apache
-          name: nextcloud
+        - name: nextcloud
+          image: nextcloud:23.0.12-apache
           ports:
             - containerPort: 80
-
-
-
-#        - env:
-#            - name: TRANS_UID
-#              value: "1000"
-#            - name: TRANS_GID
-#              value: "1000"
-#
-#          volumeMounts:
-#            - mountPath: /etc/transmission/settings.json
-#              name: settingsjson
-#              subPath: settings.json
-#            - mountPath: /data
-#              name: data
-#      volumes:
-#        - configMap:
-#            name: transmission
-#          name: settingsjson
-#        - name: data
-#          persistentVolumeClaim:
-#            claimName: torrent-pvc
+          volumeMounts:
+            - mountPath: /var/www/html
+              name: data
+      volumes:
+        - name: data
+          persistentVolumeClaim:
+            claimName: torrent-pvc
