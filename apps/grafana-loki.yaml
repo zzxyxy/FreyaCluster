@@ -13,17 +13,32 @@ spec:
     targetRevision: 4.8.0
     helm:
       releaseName: loki
-      parameters:
-      - name: ingress.enabled
-        value: "true"
-      - name: ingress.hosts[0]
-        value: loki.monitoring.zxyxyhome.duckdns.org
-      - name: read.persistence.storageClass
-        value: "grafana-loki"
-      - name: write.persistence.storageClass
-        value: "grafana-loki"
-      - name: singleBinary.persistence.storageClass
-        value: "grafana-loki"
+      values: |
+        loki:
+          commonConfig:
+            replication_factor: 1
+          storage:
+            type: 'filesystem'
+          compactor:
+            retention_enabled: true
+          limits_config:
+            retention_period: 180d
+        rulerConfig:
+          storage:
+            type: local
+        singleBinary:
+          persistence:
+            enabled: true
+            size: 30Gi
+            storageClass: grafana-loki
+          replicas: 1
+          ingress:
+            enabled: true
+            annotations:
+              kubernetes.io/ingress.class: private
+            hosts:
+              - loki.monitoring.zxyxyhome.duckdns.org
+
   destination:
     namespace: monitoring
     server: https://kubernetes.default.svc
