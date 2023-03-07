@@ -1,0 +1,43 @@
+apiVersion: argoproj.io/v1alpha1
+kind: Application
+metadata:
+  name: grafana-loki
+  namespace: argocd
+  finalizers:
+    - resources-finalizer.argocd.argoproj.io
+spec:
+  project: default
+  source:
+    chart: loki
+    repoURL: https://grafana.github.io/helm-charts
+    targetRevision: 4.8.0
+    helm:
+      releaseName: loki
+      parameters:
+      - name: ingress.enabled
+        value: "true"
+      - name: ingress.hosts[0]
+        value: loki.monitoring.zxyxyhome.duckdns.org
+      - name: grafana.enabled
+        value: "true"
+      - name: prometheus.enabled
+        value: "true"
+      - name: persistence.enabled
+        value: "true"
+      - name: persistence.storageClassName
+        value: loki
+      - name: persistence.size
+        value: "20Gi"
+      - name: persistence.accessModes[0]
+        value: ReadWriteOnce
+      - name: initChownData.enabled
+        value: "false"
+  destination:
+    namespace: monitoring
+    server: https://kubernetes.default.svc
+  syncPolicy:
+    automated:
+      selfHeal: true
+      prune: true
+    syncOptions:
+    - CreateNamespace=true
