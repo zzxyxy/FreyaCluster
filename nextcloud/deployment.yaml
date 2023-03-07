@@ -5,8 +5,6 @@ metadata:
   name: nextcloud
   namespace: nextcloud
 spec:
-  externalIPs:
-    - 172.21.0.2
   ports:
     - name: http
       port: 80
