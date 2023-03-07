@@ -1,0 +1,21 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: ismydns
+  namespace: mqtt
+spec:
+  replicas: 1
+  selector:
+    matchLabels:
+      app: ismydns
+  template:
+    metadata:
+      labels:
+        app: ismydns
+    spec:
+      containers:
+        - image: ismydns:0.1.0
+          name: ismydns
+          env:
+            - name: DNS
+            - value: zxyxyhome.duckdns.org
