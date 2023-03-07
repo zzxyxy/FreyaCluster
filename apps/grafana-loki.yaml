@@ -18,20 +18,12 @@ spec:
         value: "true"
       - name: ingress.hosts[0]
         value: loki.monitoring.zxyxyhome.duckdns.org
-      - name: grafana.enabled
-        value: "true"
-      - name: prometheus.enabled
-        value: "true"
-      - name: persistence.enabled
-        value: "true"
-      - name: persistence.storageClassName
-        value: loki
-      - name: persistence.size
-        value: "20Gi"
-      - name: persistence.accessModes[0]
-        value: ReadWriteOnce
-      - name: initChownData.enabled
-        value: "false"
+      - name: read.persistence.storageClass
+        value: "grafana-loki"
+      - name: write.persistence.storageClass
+        value: "grafana-loki"
+      - name: singleBinary.persistence.storageClass
+        value: "grafana-loki"
   destination:
     namespace: monitoring
     server: https://kubernetes.default.svc
