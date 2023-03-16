@@ -1,0 +1,13 @@
+apiVersion: k8s.nginx.org/v1
+kind: VirtualServer
+metadata:
+  name: argocd
+  namespace: argocd
+spec:
+  host: argocd.zxyxyhome.duckdns.org
+  tls:
+    secret: zxyxyhome-wild-tls
+  upstreams:
+  - name: argocd
+    service: argo-cd-argocd-server
+    port: 80
