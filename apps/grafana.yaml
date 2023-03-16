@@ -32,7 +32,7 @@ spec:
         value: grafana.monitoring.zxyxyhome.duckdns.org
       - name: ingress.tls[0].secretName
         value: zxyxyhome-wild-tls
-      - name: ingress.annotations[0]
+      - name: ingress.annotations
         value: "ingress.kubernetes.io/ssl-redirect: \"true\""
   destination:
     namespace: monitoring
