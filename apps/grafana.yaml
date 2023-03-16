@@ -35,6 +35,8 @@ spec:
       values: |
         ingress:
           annotations:
+            traefik.ingress.kubernetes.io/frontend-entry-points: http, https
+            traefik.ingress.kubernetes.io/redirect-entry-point: https
             ingress.kubernetes.io/ssl-redirect: "true"
             traefik.ingress.kubernetes.io/router.tls: "true"
   destination:
