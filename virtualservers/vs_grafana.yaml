@@ -1,0 +1,17 @@
+apiVersion: k8s.nginx.org/v1
+kind: VirtualServer
+metadata:
+  name: grafana
+  namespace: monitoring
+spec:
+  host: grafana.monitoring.zxyxyhome.duckdns.org
+  tls:
+    secret: zxyxyhome-wild-tls
+  upstreams:
+  - name: grafana
+    service: grafana
+    port: 80
+  routes:
+  - path: /
+    action:
+      pass: grafana

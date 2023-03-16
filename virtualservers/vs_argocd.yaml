@@ -11,3 +11,7 @@ spec:
   - name: argocd
     service: argo-cd-argocd-server
     port: 80
+  routes:
+  - path: /
+    action:
+      pass: argocd
