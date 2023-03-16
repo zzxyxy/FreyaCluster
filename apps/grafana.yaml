@@ -30,15 +30,17 @@ spec:
         value: "false"
 #      - name: ingress.tls[0].hosts[0]
 #        value: grafana.monitoring.zxyxyhome.duckdns.org
-      - name: ingress.tls[0].secretName
-        value: zxyxyhome-wild-tls
+#      - name: ingress.tls[0].secretName
+#        value: zxyxyhome-wild-tls
       values: |
         ingress:
           annotations:
             traefik.ingress.kubernetes.io/frontend-entry-points: http, https
-            traefik.ingress.kubernetes.io/redirect-entry-point: https
+            traefik.ingress.kubernetes.io/redirect-entry-point: https://grafana.monitoring.zxyxyhome.duckdns.org
             ingress.kubernetes.io/ssl-redirect: "true"
             traefik.ingress.kubernetes.io/router.tls: "true"
+          tls:
+            - zxyxyhome-wild-tls
   destination:
     namespace: monitoring
     server: https://kubernetes.default.svc
