@@ -40,7 +40,7 @@ spec:
             ingress.kubernetes.io/ssl-redirect: "true"
             traefik.ingress.kubernetes.io/router.tls: "true"
           tls:
-            - zxyxyhome-wild-tls
+            - secretName: zxyxyhome-wild-tls
   destination:
     namespace: monitoring
     server: https://kubernetes.default.svc
