@@ -36,6 +36,7 @@ spec:
         ingress:
           annotations:
             ingress.kubernetes.io/ssl-redirect: "true"
+            traefik.ingress.kubernetes.io/router.tls: "true"
   destination:
     namespace: monitoring
     server: https://kubernetes.default.svc
