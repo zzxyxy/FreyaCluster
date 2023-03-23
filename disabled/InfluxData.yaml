@@ -16,6 +16,10 @@ spec:
       parameters:
       - name: persistence.storageClass
         value: influxdb
+      - name: persistence.size
+        value: 100Gi
+      - name: persistence.enabled
+        value: "true"
       values: |
         ingress:
           enable: true
