@@ -16,8 +16,12 @@ spec:
       parameters:
       - name: persistence.storageClass
         value: influxdb
+      values: |
+        ingress:
+          enable: true
+          hostname: influxdb.db.zxyxyhome.duckdns.org
   destination:
-    namespace: monitoring
+    namespace: influxdb
     server: https://kubernetes.default.svc
   syncPolicy:
     automated:
