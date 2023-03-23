@@ -24,6 +24,8 @@ spec:
         ingress:
           enabled: true
           hostname: influxdb.db.zxyxyhome.duckdns.org
+        service:
+          type: ClusterIP
   destination:
     namespace: influxdb
     server: https://kubernetes.default.svc
