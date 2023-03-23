@@ -22,7 +22,7 @@ spec:
         value: "true"
       values: |
         ingress:
-          enable: true
+          enabled: true
           hostname: influxdb.db.zxyxyhome.duckdns.org
   destination:
     namespace: influxdb
