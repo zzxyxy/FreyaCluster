@@ -20,6 +20,8 @@ spec:
         value: 100Gi
       - name: persistence.enabled
         value: "true"
+      - name: auth.admin.username=admin-user
+        value: "administrator"
       values: |
         ingress:
           enabled: true
