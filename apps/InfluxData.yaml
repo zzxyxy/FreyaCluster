@@ -22,6 +22,8 @@ spec:
         value: "true"
       - name: auth.admin.username
         value: "administrator"
+      - name: volumePermissions.enabled
+        value: "false"
       values: |
         ingress:
           enabled: true
