@@ -41,8 +41,6 @@ spec:
         value: 100Gi
       - name: persistence.enabled
         value: "true"
-      - name: auth.admin.username
-        value: "administrator"
       - name: volumePermissions.enabled
         value: "false"
       values: |
