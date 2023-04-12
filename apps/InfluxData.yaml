@@ -28,6 +28,16 @@ spec:
         ingress:
           enabled: true
           hostname: influxdb.db.zxyxyhome.duckdns.org
+        auth:
+          username: admin
+          password: admin
+        startupProbe:
+          enabled: false
+          initialDelaySeconds: 360
+          periodSeconds: 45
+          timeoutSeconds: 30
+          successThreshold: 1
+          failureThreshold: 6
   destination:
     namespace: influxdb
     server: https://kubernetes.default.svc
