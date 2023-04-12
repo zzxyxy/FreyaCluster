@@ -32,7 +32,7 @@ spec:
           username: admin
           password: admin
         startupProbe:
-          enabled: false
+          enabled: true
           initialDelaySeconds: 360
           periodSeconds: 45
           timeoutSeconds: 30
