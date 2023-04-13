@@ -1,0 +1,17 @@
+apiVersion: networking.k8s.io/v1
+kind: Ingress
+metadata:
+  name: influxdb
+  namespace: influxdb
+spec:
+  rules:
+    - host: influxdb.db.zxyxyhome.duckdns.org
+      http:
+        paths:
+          - backend:
+              service:
+                name: influxdb
+                port:
+                  number: 80
+            path: /
+            pathType: Prefix
