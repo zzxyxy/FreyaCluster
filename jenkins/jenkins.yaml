@@ -41,7 +41,7 @@ spec:
     - ReadWriteOnce
   resources:
     requests:
-      storage: 2500Gi
+      storage: 50Gi
   storageClassName: jenkins
   volumeMode: Filesystem
 ---
