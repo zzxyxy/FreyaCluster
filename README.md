@@ -17,8 +17,8 @@ curl https://raw.githubusercontent.com/zzxyxy/FreyaCluster/main/apps.yaml | kube
 # k3d
 
 k3d cluster create --api-port 6550 \
-    -p "0.0.0.0:80:80@loadbalancer" \
-    -p "0.0.0.0:443:443@loadbalancer" \
+    -p "0.0.0.0:10080:80@loadbalancer" \
+    -p "0.0.0.0:10443:443@loadbalancer" \
     -p "0.0.0.0:1883:1883@loadbalancer" \
     -p "0.0.0.0:6379:6379@loadbalancer" \
     -p "0.0.0.0:5432:5432@loadbalancer" \
@@ -30,4 +30,4 @@ k3d cluster create --api-port 6550 \
     -p "0.0.0.0:20003:20003/udp@loadbalancer" \
     -p "0.0.0.0:20004:20004@loadbalancer" \
     -p "0.0.0.0:20004:20004/udp@loadbalancer" \
-    --agents 4 z --subnet 172.18.0.0/16
+    --agents 1 z --subnet 172.18.0.0/16
