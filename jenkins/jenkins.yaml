@@ -62,7 +62,7 @@ spec:
     spec:
       containers:
         - name: jenkins
-          image: zxyxy/jenkins:v0.2.0
+          image: zxyxy/jenkins:v0.3.0
           ports:
             - containerPort: 8080
             - containerPort: 50000
