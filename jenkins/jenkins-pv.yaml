@@ -15,12 +15,11 @@ spec:
     - nfsvers=4.1
     - rw
     - bg
-    - nointr
     - rsize=32768
     - wsize=32768
     - tcp
     - timeo=600
-    - actime=0
+    - no_subtree_check
   nfs:
     path: /storage01/kube/jenkins
     server: 172.21.0.2
