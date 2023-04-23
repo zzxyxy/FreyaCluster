@@ -69,10 +69,10 @@ spec:
           ports:
             - containerPort: 8080
             - containerPort: 50000
-#          volumeMounts:
-#            - mountPath: /var/jenkins_home
-#              name: data
-#      volumes:
-#        - name: data
-#          persistentVolumeClaim:
-#            claimName: jenkins-pvc
+          volumeMounts:
+            - mountPath: /var/jenkins_home
+              name: data
+      volumes:
+        - name: data
+          persistentVolumeClaim:
+            claimName: jenkins-pvc
