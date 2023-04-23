@@ -14,5 +14,5 @@ spec:
     - hard
     - nfsvers=4.1
   local:
-    path: /storage01/kube/jenkins
+    path: /srv/kubernetes/jenkins
 #    server: 172.21.0.2
