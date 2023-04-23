@@ -12,14 +12,17 @@ spec:
   storageClassName: jenkins
   mountOptions:
     - hard
-    - nfsvers=4.1
-#    - rw
-#    - bg
-#    - rsize=32768
-#    - wsize=32768
-#    - tcp
-#    - timeo=600
-#    - no_subtree_check
+    - timeo=600
+    - retrans=3
+    - proto=tcp
+    - nfsvers=4.2
+    - port=2050
+    - rsize=4096
+    - wsize=4096
+    - noacl
+    - nocto
+    - noatime
+    - nodiratime
   nfs:
     path: /storage01/kube/jenkins
     server: 172.21.0.2
