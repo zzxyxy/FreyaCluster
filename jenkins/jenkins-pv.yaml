@@ -10,9 +10,9 @@ spec:
     - ReadWriteOnce
   persistentVolumeReclaimPolicy: Retain
   storageClassName: jenkins
-  mountOptions:
-    - hard
-    - nfsvers=4.1
+#  mountOptions:
+#    - hard
+ #   - nfsvers=4.1
   local:
     path: /srv/kubernetes/jenkins
 #    server: 172.21.0.2
