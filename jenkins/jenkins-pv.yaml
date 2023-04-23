@@ -10,20 +10,17 @@ spec:
     - ReadWriteOnce
   persistentVolumeReclaimPolicy: Retain
   storageClassName: jenkins
-#  nodeAffinity: Local
-#  mountOptions:
-#    - hard
- #   - nfsvers=4.1
-  hostPath:
-    path: /srv/kubernetes/jenkins
-##    server: 172.21.0.2
-#  nodeAffinity:
-#    required:
-#      nodeSelectorTerms:
-#      - matchExpressions:
-#        - key: kubernetes.io/hostname
-#          operator: In
-#          values:
-#          - k3d-z-agent-0
-#          - k3d-z-agent-1
-#          - k3d-z-agent-2
+  mountOptions:
+    - hard
+    - nfsvers=4.1
+    - rw
+    - bg
+    - nointr
+    - rsize=32768
+    - wsize=32768
+    - tcp
+    - timeo=600
+    - actime=0
+  nfs:
+    path: /storage01/kube/jenkins
+    server: 172.21.0.2
