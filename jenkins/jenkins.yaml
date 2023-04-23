@@ -71,6 +71,5 @@ spec:
               name: data
       volumes:
         - name: data
-          hostPath:
-            path: /storage01/kube/jenkins
-            type: DirectoryOrCreate
+          persistentVolumeClaim:
+            claimName: jenkins-pvc

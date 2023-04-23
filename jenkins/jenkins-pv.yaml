@@ -13,6 +13,6 @@ spec:
   mountOptions:
     - hard
     - nfsvers=4.1
-  nfs:
+  local:
     path: /storage01/kube/jenkins
-    server: 172.21.0.2
+#    server: 172.21.0.2
