@@ -10,6 +10,7 @@ spec:
     - ReadWriteOnce
   persistentVolumeReclaimPolicy: Retain
   storageClassName: jenkins
+  nodeAffinity: Local
 #  mountOptions:
 #    - hard
  #   - nfsvers=4.1
