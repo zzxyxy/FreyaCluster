@@ -14,6 +14,14 @@ spec:
 #  mountOptions:
 #    - hard
  #   - nfsvers=4.1
-  hostPath:
+  local:
     path: /srv/kubernetes/jenkins
 #    server: 172.21.0.2
+  nodeAffinity:
+    required:
+      nodeSelectorTerms:
+      - matchExpressions:
+        - key: kubernetes.io/hostname
+          operator: In
+          values:
+          - Freya
