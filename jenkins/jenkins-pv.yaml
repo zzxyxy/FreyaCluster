@@ -13,12 +13,12 @@ spec:
   mountOptions:
     - hard
     - nfsvers=4.1
-    - rw
-    - bg
+#    - rw
+#    - bg
     - rsize=32768
     - wsize=32768
-    - tcp
-    - timeo=600
+#    - tcp
+#    - timeo=600
     - no_subtree_check
   nfs:
     path: /storage01/kube/jenkins
