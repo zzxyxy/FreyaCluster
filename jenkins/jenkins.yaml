@@ -61,7 +61,8 @@ spec:
         app: jenkins
     spec:
       securityContext:
-        fsGroup: 1000
+        runAsUser: 0
+        runAsGroup: 0
       containers:
         - name: jenkins
           image: zxyxy/jenkins:v0.3.0
