@@ -31,19 +31,19 @@ spec:
             path: /
             pathType: Prefix
 ---
-#apiVersion: v1
-#kind: PersistentVolumeClaim
-#metadata:
-#  name: jenkins-pvc
-#  namespace: jenkins
-#spec:
-#  accessModes:
-#    - ReadWriteOnce
-#  resources:
-#    requests:
-#      storage: 50Gi
-#  storageClassName: jenkins
-#  volumeMode: Filesystem
+apiVersion: v1
+kind: PersistentVolumeClaim
+metadata:
+  name: jenkins-pvc
+  namespace: jenkins
+spec:
+  accessModes:
+    - ReadWriteOnce
+  resources:
+    requests:
+      storage: 50Gi
+  storageClassName: jenkins
+  volumeMode: Filesystem
 ---
 apiVersion: apps/v1
 kind: Deployment
