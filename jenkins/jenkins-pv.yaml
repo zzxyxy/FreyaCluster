@@ -14,6 +14,6 @@ spec:
 #  mountOptions:
 #    - hard
  #   - nfsvers=4.1
-  local:
+  hostPath:
     path: /srv/kubernetes/jenkins
 #    server: 172.21.0.2
