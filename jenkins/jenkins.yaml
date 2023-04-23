@@ -31,19 +31,19 @@ spec:
             path: /
             pathType: Prefix
 ---
-apiVersion: v1
-kind: PersistentVolumeClaim
-metadata:
-  name: jenkins-pvc
-  namespace: jenkins
-spec:
-  accessModes:
-    - ReadWriteOnce
-  resources:
-    requests:
-      storage: 50Gi
-  storageClassName: jenkins
-  volumeMode: Filesystem
+#apiVersion: v1
+#kind: PersistentVolumeClaim
+#metadata:
+#  name: jenkins-pvc
+#  namespace: jenkins
+#spec:
+#  accessModes:
+#    - ReadWriteOnce
+#  resources:
+#    requests:
+#      storage: 50Gi
+#  storageClassName: jenkins
+#  volumeMode: Filesystem
 ---
 apiVersion: apps/v1
 kind: Deployment
@@ -68,10 +68,10 @@ spec:
           ports:
             - containerPort: 8080
             - containerPort: 50000
-          volumeMounts:
-            - mountPath: /var/jenkins_home
-              name: data
-      volumes:
-        - name: data
-          persistentVolumeClaim:
-            claimName: jenkins-pvc
+#          volumeMounts:
+#            - mountPath: /var/jenkins_home
+#              name: data
+#      volumes:
+#        - name: data
+#          persistentVolumeClaim:
+#            claimName: jenkins-pvc
