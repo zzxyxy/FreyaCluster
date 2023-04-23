@@ -7,7 +7,7 @@ spec:
     storage: 50Gi
   volumeMode: Filesystem
   accessModes:
-    - ReadWriteOnce
+    - ReadWriteMany
   persistentVolumeReclaimPolicy: Retain
   storageClassName: jenkins
 #  nodeAffinity: Local
