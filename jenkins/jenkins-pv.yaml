@@ -16,7 +16,6 @@ spec:
     - retrans=3
     - proto=tcp
     - nfsvers=4.2
-    - port=2050
     - rsize=4096
     - wsize=4096
     - noacl
