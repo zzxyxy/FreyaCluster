@@ -14,16 +14,16 @@ spec:
 #  mountOptions:
 #    - hard
  #   - nfsvers=4.1
-  local:
+  hostpath:
     path: /srv/kubernetes/jenkins
-#    server: 172.21.0.2
-  nodeAffinity:
-    required:
-      nodeSelectorTerms:
-      - matchExpressions:
-        - key: kubernetes.io/hostname
-          operator: In
-          values:
-          - k3d-z-agent-0
-          - k3d-z-agent-1
-          - k3d-z-agent-2
+##    server: 172.21.0.2
+#  nodeAffinity:
+#    required:
+#      nodeSelectorTerms:
+#      - matchExpressions:
+#        - key: kubernetes.io/hostname
+#          operator: In
+#          values:
+#          - k3d-z-agent-0
+#          - k3d-z-agent-1
+#          - k3d-z-agent-2
