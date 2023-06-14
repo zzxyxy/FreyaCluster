@@ -65,7 +65,7 @@ spec:
         runAsGroup: 0
       containers:
         - name: jenkins
-          image: zxyxy/jenkins:v0.3.0
+          image: zxyxy/jenkins:v0.5.0
           ports:
             - containerPort: 8080
             - containerPort: 50000
