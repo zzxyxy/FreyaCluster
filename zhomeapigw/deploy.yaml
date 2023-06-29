@@ -16,7 +16,7 @@ spec:
     spec:
       containers:
         - name: zhomeapigw
-          image: zxyxy/zhomeapigw:v0.1.0
+          image: zxyxy/zhomeapigw:0.1.0
           ports:
             - containerPort: 5000
 
